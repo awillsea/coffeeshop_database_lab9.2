@@ -1,0 +1,18 @@
+﻿@model LoyalClient;
+@{
+    ViewData["Title"] = "Detail";
+    
+}
+
+<h1>Loyal Client Info</h1>
+
+FirstName: @Model.firstname <br />
+Email: @Model.email<br />
+Reward Points: @Model.points<br />
+
+<h2>How Many Items they can buy of each item with there points</h2>
+@foreach(Product prod in (List<Product>)ViewData["Client"])
+{   <div>
+   @(Math.Round((@Model.points / 25 / @prod.price)))  @prod.name  
+    </div>
+}

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<LoyalClient>;
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<table>
+    <thead>
+       <tr>
+           <th>Names</th>
+           <th>Actions</th>
+       </tr>
+    </thead>
+    <tbody>
+       @foreach(LoyalClient c in Model)
+       {
+    <tr>
+        <td>@c.firstname @c.lastname</td>
+        <td>
+            <a href="/loyalclient/Detail?id=@c.id">Detail</a>
+            <a href="/loyalclient/Delete?id=@c.id">Delete</a>
+            <a href="">Edit</a>
+        </td>
+        </tr>
+       }
+    </tbody>
+</table>
+<a href="/department/addform">Add Loyal Client</a>
